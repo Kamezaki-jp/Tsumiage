@@ -23,7 +23,6 @@ gem 'devise-i18n'
 # Bootstrap
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'cocoon'
 gem "refile", require: "refile/rails", github: 'manfe/refile'

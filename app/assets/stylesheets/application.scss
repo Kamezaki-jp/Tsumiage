@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+.alert-notice {
+  @extend .alert-primary;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
