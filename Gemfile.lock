@@ -96,7 +96,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (1.1.0)
     devise-i18n (1.9.3)
       devise (>= 4.7.1)
     domain_name (0.5.20190701)
@@ -291,7 +290,6 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
-  devise-bootstrap-views (~> 1.0)
   devise-i18n
   font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
