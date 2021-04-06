@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweets_path
     else
-      
+      render 'new', alert: '必須項目'
     end
   end
   
@@ -33,6 +33,6 @@ class TweetsController < ApplicationController
   private
   
     def tweet_params
-      params.require(:tweet).permit(:body)
+      params.require(:tweet).permit(:body, tasks_attributes: [:id, :body, :_destroy])
     end
 end
