@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>ユーザー一覧</h3>
+
+      <table class="table">
+        <% @users.each do |user| %>
+          <tr class="shadow rounded mb-4">
+            <td>
+              <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "80x80", class: "rounded-circle" %>
+            </td>
+            <td><%= user.name %></td>
+            <td><%=  link_to 'Show', user_path(user) %></td>
+          </tr>
+        <% end%>
+      </table>
+    </div>
+  </div>
+</div>

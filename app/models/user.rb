@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  #ゲストログインのメソッド 
+
+  attachment :profile_image
+
+  #ゲストログインのメソッド
   def self.guest
     find_or_create_by(email: 'guest@example.com') do |user|
       # ランダムパスワードの作成
