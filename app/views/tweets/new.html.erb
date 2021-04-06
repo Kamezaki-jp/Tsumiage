@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with(model: @tweet, local: true) do |f| %>
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_field :body %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit "投稿" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
