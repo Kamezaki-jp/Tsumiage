@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   
   def new
     @tweet = Tweet.new
+    # @tweet.tasks.build
   end
   
   def create
@@ -33,6 +34,6 @@ class TweetsController < ApplicationController
   private
   
     def tweet_params
-      params.require(:tweet).permit(:body, tasks_attributes: [:id, :body, :_destroy])
+      params.require(:tweet).permit(:body, tasks_attributes: [:id, :body,:done, :_destroy])
     end
 end
