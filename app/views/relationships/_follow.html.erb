@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+  <div class="row mt-3">
+    <div class="col shadow p-3">
+      <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50", class: "rounded-circle shadow-sm" %>
+      <%= user.name %>
+      <% unless user == current_user %>
+        <% if current_user.following?(user) %>
+          <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST %>
+        <% else %>
+          <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

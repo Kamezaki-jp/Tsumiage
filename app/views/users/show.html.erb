@@ -5,22 +5,32 @@
       <%= @user.name %>
     </div>
   </div>
+  
   <div class="row">
     <div class="col">
       <%= @user.introduction %>
     </div>
   </div>
+  
   <div class="row">
     <div class="col">
       <%= link_to '積み上げグラフ', '#', class: "btn btn-info" %>
     </div>
     <div class="col">
-      <%= link_to 'フォローする', '#', class: "btn btn-secondary"%>
+      <% if @user.id == current_user.id %>
+        <%= link_to '', edit_user_registration_path, class: "btn btn-outline-secondary fas fa-user-cog" %>
+      <% elsif current_user.following?(@user) %>
+        <%= link_to 'フォローを外す', unfollow_path(@user.id), class: "btn btn-secondary", method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(@user.id), class: "btn btn-success", method: :POST %>
+      <% end %>
     </div>
   </div>
+  
   <div class="row">
     <div class="col">
-      
+      <%= link_to "#{@user.follower.count}フォロー", follows_path(@user) %>
+      <%= link_to "#{@user.followed.count}フォロワー", followers_path(@user) %>
     </div>
   </div>
 </div>
