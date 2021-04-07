@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form>
+        <%= form_with(model: tweet, local: true) do |f| %>
+          <div class="form-group">
+            <%= f.label :body, "ツイート内容"%>
+            <%= f.text_area :body, placeholder: "投稿内容", class: "form-control" %>
+          </div>
+          <div id="tasks" class="form-group">
+            <%= f.fields_for :tasks do |task| %>
+              <%= render 'task_fields', f: task %>
+            <% end %>
+            <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-primary" %>
+            <div class="actions">
+              <%= f.submit "投稿" %>
+            </div>
+          <% end %>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
