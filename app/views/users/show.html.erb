@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col border">
-      <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg", size:'60x60', class: "rounded-circle" %>
+      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: '60x60', class: "rounded-circle shadow" %>
       <%= @user.name %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col">
       <%= @user.introduction %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col">
       <%= link_to '積み上げグラフ', '#', class: "btn btn-info" %>
@@ -26,7 +26,7 @@
       <% end %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col">
       <%= link_to "#{@user.follower.count}フォロー", follows_path(@user) %>
