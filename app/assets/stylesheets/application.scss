@@ -24,11 +24,20 @@
   box-sizing: border-box;
 }
 
-// 「ログインしました」などのフラッシュ用スタイル
+/*========================
+flash message
+========================*/
 .alert-notice {
   @extend .alert-primary;
 }
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+/*========================
+header
+========================*/
+header {
+  background-color: #0094c8;
 }
