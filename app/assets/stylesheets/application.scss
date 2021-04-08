@@ -94,6 +94,56 @@ home/top
 }
 
 /*========================
+about
+========================*/
+.about-content {
+  padding: 120px;
+}
+
+.about-title {
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+/*========================
+feature
+========================*/
+.feature-content {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.fa-check-circle {
+  color: $sub-color;
+}
+
+.feature-image {
+  margin-left: 110px;
+}
+
+
+/*========================
+message
+========================*/
+.message-content {
+  margin: 24px 0;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.message-title {
+  color: $main-color;
+}
+
+.message-text {
+  color: $main-color;
+}
+/*========================
 footer
 ========================*/
 footer {
