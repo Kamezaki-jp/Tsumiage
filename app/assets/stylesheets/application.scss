@@ -18,6 +18,14 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+/*========================
+変数
+========================*/
+$main-color: #074770;
+$sub-color: #FFD400;
+/*========================
+public
+========================*/
 * {
   margin: 0;
   padding: 0;
@@ -39,12 +47,60 @@ flash message
 header
 ========================*/
 header {
-  background-color: #074770;
+  background-color: $main-color;
+}
+
+/*========================
+home/top
+========================*/
+.container-bg {
+  background-color: $main-color;
+}
+.top-content {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.top-title {
+  font-size: 64px;
+  font-weight: bold;
+  color: $main-color;
+}
+
+.top-text {
+  font-weight: bold;
+  color: $main-color;
+}
+
+.custom-main-color{
+  background-color: $main-color;
+  &:hover {
+    opacity: 1.5;
+  }
+}
+.custom-sub-color {
+  background-color: $sub-color;
+  &:hover {
+    opacity: 1.5;
+  }
+}
+
+.top-signup-btn {
+  padding: 5px 32px;
+}
+
+.top-guest-signin-btn {
+  padding: 5px 22px;
 }
 
 /*========================
 footer
 ========================*/
 footer {
-  background-color: #074770;
+  background-color: $main-color;
+}
+
+.footer-text {
+ text-decoration: none !important;
+ color: #FFF;
 }

@@ -1,3 +1,45 @@
 <%= render 'shared/flash_messages' %>
-<h1>Homes#top</h1>
+<div class="wrapper">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="top-content">
+        <h1 class="top-title">Tsumiage</h1>
+        <p class="top-text">誰かの積み上げが、あなたのやる気に</p>
+      </div>
+      <div class="text-center">
+        <%= link_to "今すぐ始める", new_user_registration_path, class: 'btn custom-sub-color btn-lg text-light top-signup-btn' %>
+      </div>
+      <div class="text-center mt-3">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn custom-main-color btn-lg text-light top-guest-signin-btn' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'top.png', class: "img-fluid" %>
+    </div>
+  </div>
+</div>
+<div class="container-flued container-bg text-light">
+  <div class="row">
+    <div class="col text-center">
+      bbbbb
+    </div>
+  </div>
+</div>
+<div class="container bg-secondary">
+  <div class="row">
+    <div class="col">
+      cccccccccc
+    </div>
+  </div>
+</div>
+<div class="container bg-success">
+  <div class="row">
+    <div class="col">
+      ddddddddd
+    </div>
+  </div>
+</div>
 
+
+</div>
