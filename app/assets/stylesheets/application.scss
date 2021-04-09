@@ -18,6 +18,15 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+/*========================
+変数
+========================*/
+$main-color: #074770;
+$sub-color: #FFD400;
+
+/*========================
+public
+========================*/
 * {
   margin: 0;
   padding: 0;
@@ -36,15 +45,134 @@ flash message
 }
 
 /*========================
+registration
+========================*/
+.registration-content {
+  color: $main-color;
+  text-align: center;
+}
+
+.registration-title {
+  font-size: 64px;
+  margin-top: 120px;
+  font-weight: bold;
+}
+
+.registration-text {
+  font-weight: bold;
+}
+/*========================
 header
 ========================*/
 header {
-  background-color: #074770;
+  background-color: $main-color;
+}
+
+/*========================
+home/top
+========================*/
+.container-bg {
+  background-color: $main-color;
+}
+
+.top-content {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.top-title {
+  font-size: 64px;
+  font-weight: bold;
+  color: $main-color;
+}
+
+.top-text {
+  font-weight: bold;
+  color: $main-color;
+}
+
+.custom-main-color{
+  background-color: $main-color;
+}
+.custom-sub-color {
+  background-color: $sub-color;
+}
+
+.top-signup-btn {
+  padding: 5px 32px;
+  color: $main-color;
+  &:hover {
+    color: #FFF;
+  }
+}
+
+.top-guest-signin-btn {
+  padding: 5px 22px;
+}
+
+/*========================
+about
+========================*/
+.about-content {
+  padding: 120px 0;
+}
+
+.about-title {
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+/*========================
+feature
+========================*/
+.feature-content {
+  margin-top: 80px;
+  text-align: center;
+  color: $main-color;
+}
+
+.fa-check-circle {
+  color: $sub-color;
+  margin-right: 8px;
+}
+
+.feature-image {
+  margin-left: 110px;
+}
+
+
+/*========================
+message
+========================*/
+.message-content {
+  margin: 24px 0;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.message-title {
+  color: $main-color;
+  font-size: 32px;
+}
+
+.message-text {
+  color: $main-color;
 }
 
 /*========================
 footer
 ========================*/
 footer {
-  background-color: #074770;
+  background-color: $main-color;
+}
+
+.footer-text {
+ text-decoration: none !important;
+ color: #FFF;
 }
