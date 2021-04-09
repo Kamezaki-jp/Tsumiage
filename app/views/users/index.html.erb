@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto pt-3">
+    <div class="col-md-8 mx-auto py-3">
       <h3>ユーザー一覧</h3><hr>
       <% @users.each do |user| %>
         <div class="row mt-3">
-          <div class="col shadow p-3 d-flex">
+          <div class="col shadow p-3 d-flex user-content">
             <div class="col">
               <%= link_to user_path(user) do %>
                 <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60", class: "rounded-circle shadow-sm" %>
