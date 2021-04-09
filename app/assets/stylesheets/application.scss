@@ -134,10 +134,12 @@ feature
 .feature-content {
   margin-top: 80px;
   text-align: center;
+  color: $main-color;
 }
 
 .fa-check-circle {
   color: $sub-color;
+  margin-right: 8px;
 }
 
 .feature-image {
