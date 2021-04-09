@@ -23,6 +23,7 @@
 ========================*/
 $main-color: #074770;
 $sub-color: #FFD400;
+$bg-color: #ededed;
 
 /*========================
 public
@@ -31,6 +32,59 @@ public
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: $main-color;
+}
+
+.custom-main-color{
+  background-color: $main-color;
+}
+.custom-sub-color {
+  background-color: $sub-color;
+}
+
+.btn-main {
+  background-color: #fff;
+  color: $main-color;
+  border: 1px solid $main-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $main-color;
+    color: #fff;
+    opacity: 2.0;
+  }
+}
+
+.btn-remove {
+  background-color: #fff;
+  color: #ee2117;
+  border: 1px solid #ee2117;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: #ee2117;
+    color: #fff;
+    opacity: 2.0;
+  }
+}
+
+.btn-custom {
+  border-radius: 30px;
+}
+
+.link-under-none {
+  text-decoration: none !important;
+}
+
+.bg-color {
+  background-color: $bg-color;
+}
+
+.text-main {
+  color: $main-color;
 }
 
 /*========================
@@ -89,13 +143,6 @@ home/top
 .top-text {
   font-weight: bold;
   color: $main-color;
-}
-
-.custom-main-color{
-  background-color: $main-color;
-}
-.custom-sub-color {
-  background-color: $sub-color;
 }
 
 .top-signup-btn {
@@ -182,4 +229,18 @@ user/index
 ========================*/
 .user-content {
   border-left: 6px solid $sub-color;
+  box-shadow: 0px 2px 3px  rgba(0,0,0,0.5);
+}
+
+/*========================
+user/show
+========================*/
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-introduction {
+  border: 2px solid rgba(212,212,212, 1.0);
+  padding: 14px;
 }
