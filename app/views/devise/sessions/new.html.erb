@@ -3,6 +3,7 @@
     <%= render 'shared/title' %>
     <div class="col border shadow my-5">
       <h2 class="my-3">ログイン</h1>
+
       <%= render 'shared/flash_messages' %>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
