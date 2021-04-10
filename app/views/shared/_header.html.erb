@@ -5,6 +5,9 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item active">
+            <%= link_to 'タスクを追加', new_tweet_path, class: 'nav-link text-light' %>
+          </li>
+          <li class="nav-item active">
             <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-light' %>
           </li>
           <li class="nav-item active">
