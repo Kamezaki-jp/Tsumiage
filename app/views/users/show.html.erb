@@ -11,21 +11,21 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col">
-      <%= link_to '積み上げグラフ', '#', class: "btn btn-info" %>
+    <div class="col mt-3">
+      <%= link_to '積み上げグラフ', '#', class: "btn btn-main btn-block" %>
     </div>
     <div class="col mt-3">
       <% if @user.id == current_user.id %>
-        <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-info btn-block btn-radius" %>
+        <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-info btn-block btn-custom" %>
       <% elsif current_user.following?(@user) %>
-        <%= link_to 'フォローを外す', unfollow_path(@user.id), class: "btn btn-remove", method: :POST %>
+        <%= link_to 'フォローを外す', unfollow_path(@user.id), class: "btn btn-remove btn-block", method: :POST %>
       <% else %>
-        <%= link_to 'フォローする', follow_path(@user.id), class: "btn btn-main", method: :POST %>
+        <%= link_to 'フォローする', follow_path(@user.id), class: "btn btn-main btn-block", method: :POST %>
       <% end %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-3">
     <div class="col">
       <%= link_to("#{@user.follower.count}フォロー", follows_path(@user), class: "text-main font-weight-bold link-under-none") %>
       <%= link_to("#{@user.followed.count}フォロワー", followers_path(@user), class: "text-main font-weight-bold link-under-none") %>
