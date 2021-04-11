@@ -24,12 +24,28 @@ class TweetsController < ApplicationController
     @user = @tweet.user
   end
 
-  def update
+  def edit
+    @tweet = Tweet.find(params[:id])
 
   end
 
-  def destroy
+  def update
+    @tweet = Tweet.find(params[:id])
+    @task = @tweet.tasks
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet), notice: "更新しました"
+    else
+      render 'edit'
+    end
+  end
 
+  def destroy
+    # @tweet = Tweet.find(params[:id])
+    # @tweet.destroy
+    # redirect_to tweets_path
+
+    Tweet.find(params[:id]).destroy
+    redirect_to user_path(current_user), alert: '投稿を削除しました'
   end
 
   private

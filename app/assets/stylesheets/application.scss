@@ -258,3 +258,15 @@ user/show
   border: 2px solid rgba(212,212,212, 1.0);
   padding: 14px;
 }
+
+.card-header, .card-footer {
+  box-shadow: 0px 2px 3px  rgba(0,0,0,0.2);
+}
+
+/*========================
+tweet/show
+========================*/
+.tweet-content {
+  border: 2px solid rgba(212,212,212, 1.0);
+  padding: 14px;
+}
