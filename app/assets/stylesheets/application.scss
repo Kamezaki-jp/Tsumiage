@@ -58,6 +58,19 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+.btn-sub {
+  background-color: #fff;
+  color: $sub-color;
+  border: 1px solid $sub-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $sub-color;
+    color: #fff;
+    opacity: 2.0;
+  }
+}
+
 .btn-remove {
   background-color: #fff;
   color: #ee2117;
