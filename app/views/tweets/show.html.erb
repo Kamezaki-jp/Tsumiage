@@ -35,8 +35,11 @@
               コメントする
             </div>
           </div>
+          <small><%= @tweet.created_at.strftime('%Y/%m/%d %-H:%-M') %></small>
         </div>
       </div>
+      <%= link_to 'ユーザーページ', user_path(@user), class: "link-under-none text-main" %>　｜
+      <%= link_to '積み上げ一覧へ', tweets_path, class: "link-under-none text-main" %>
     </div>
   </div>
 </div>

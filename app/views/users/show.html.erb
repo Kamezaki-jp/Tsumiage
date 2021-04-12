@@ -33,7 +33,7 @@
   </div>
 
   <% @tweets.each do |tweet| %>
-    <div class="row">
+    <div class="row my-3">
       <div class="col">
         <div class="card shadow">
           <div class="card-header">
@@ -57,6 +57,9 @@
                 </div>
               </div>
             <% end %>
+            <i class="fas fa-bullhorn"></i>：<%= tweet.cheers.count %>
+            <i class="far fa-comment-alt"></i>：<br>
+            <small><%= tweet.created_at.strftime('%Y/%m/%d %-H:%-M') %></small>
           </div>
           <div class="card-footer">
 
