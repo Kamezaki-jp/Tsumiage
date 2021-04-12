@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users
   resources :tweets do
     resource :cheers, only: [:create, :destroy]
+    resources :tweet_comments, only: [:create, :destroy]
   end
   resources :tasks
 end
