@@ -274,3 +274,20 @@ tweet/show
 .fa-edit, .fa-trash-alt {
   color: $main-color;
 }
+
+.comment-box {
+  position: relative;
+
+  .delete-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    font-size: 20px;
+  }
+  
+}
+
+.comment-title {
+  font-size: 18px;
+}

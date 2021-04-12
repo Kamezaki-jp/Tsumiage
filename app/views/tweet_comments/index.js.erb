@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render "tweet_comments/comment-index", tweet_comments: @tweet_comment.post.tweet_comments) %>");
+$("textarea").val("")
