@@ -2,29 +2,39 @@
   <%= render 'shared/flash_messages' %>
   <div class="row">
     <div class="col">
+       <!--自分のツイート一覧-->
       <div class="card">
         <div class="card-header">
           <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: '40x40', class: "rounded-circle" %>
           <%= @user.name %>
-          <%= link_to 'edit', edit_tweet_path(@tweet) %>
-          <%= link_to 'destroy', @tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if @tweet.user_id == current_user.id %>
+            <%= link_to '', edit_tweet_path(@tweet), class:"fas fa-edit" %>
+            <%= link_to '', @tweet, method: :delete, data: { confirm: '削除しますか?' }, class: "fas fa-trash-alt" %>
+          <% end %>
         </div>
 
-
-        <div class="card-body">
+        <div class="card-body shadow">
           <div class="tweet-content">
             <%= safe_join(@tweet.body.split("\n"),tag(:br)) %>
           </div>
           <% @tweet.tasks.each do |task| %>
             <div class="row bg-color border my-3">
               <div class="col">
-                <p><%= task.task_name %></p>
+                <%= task.task_name %>
               </div>
             </div>
           <% end %>
         </div>
+
         <div class="card-footer">
-          
+          <div class="row">
+            <div class="col cheer-btn" id="tweet_<%= @tweet.id %>">
+              <%= render "cheers/cheer-btn", tweet: @tweet %>
+            </div>
+            <div class="col">
+              コメントする
+            </div>
+          </div>
         </div>
       </div>
     </div>
