@@ -16,18 +16,16 @@
             <%= safe_join(@tweet.body.split("\n"),tag(:br)) %>
           </div>
           <% @tweet.tasks.each do |task| %>
-            <div class="row bg-color">
-              <div class="col user-content">
+            <div class="row bg-color border my-3">
+              <div class="col">
                 <p><%= task.task_name %></p>
               </div>
             </div>
           <% end %>
         </div>
-
-
-
-
-        <div class="card-footer">Card footer</div>
+        <div class="card-footer">
+          
+        </div>
       </div>
     </div>
   </div>
