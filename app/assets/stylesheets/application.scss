@@ -58,6 +58,19 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+.btn-sub {
+  background-color: #fff;
+  color: $sub-color;
+  border: 1px solid $sub-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $sub-color;
+    color: #fff;
+    opacity: 2.0;
+  }
+}
+
 .btn-remove {
   background-color: #fff;
   color: #ee2117;
@@ -242,6 +255,18 @@ user/show
 }
 
 .user-introduction {
+  border: 2px solid rgba(212,212,212, 1.0);
+  padding: 14px;
+}
+
+.card-header, .card-footer {
+  box-shadow: 0px 2px 3px  rgba(0,0,0,0.2);
+}
+
+/*========================
+tweet/show
+========================*/
+.tweet-content {
   border: 2px solid rgba(212,212,212, 1.0);
   padding: 14px;
 }

@@ -7,7 +7,7 @@
           <%= user.name %>
         <% end %>
       </div>
-      <div class="col">
+      <div class="col pt-2">
         <% unless user == current_user %>
         <% if current_user.following?(user) %>
           <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST, class: "btn btn-sm btn-remove" %>
@@ -16,7 +16,6 @@
         <% end %>
       <% end %>
       </div>
-
     </div>
   </div>
 <% end %>
