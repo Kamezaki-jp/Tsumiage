@@ -1,0 +1,13 @@
+<% if tweet.cheered_by?(current_user) %>
+  <%= link_to tweet_cheers_path(tweet), method: :delete, remote: true do %>
+    <i class="fas fa-bullhorn" aria-hidden="true" style="color: red;"></i>
+      応援する：
+      <%= tweet.cheers.count %>
+  <% end %>
+<% else %>
+  <%= link_to(tweet_cheers_path(tweet), method: :post, remote: true, class: "text-main") do %>
+    <i class="fas fa-bullhorn"></i>
+    応援する：
+    <%= tweet.cheers.count %>
+  <% end %>
+<% end %>
