@@ -1,6 +1,6 @@
 <div class="container">
   <%= render 'shared/flash_messages' %>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col">
        <!--自分のツイート一覧-->
       <div class="card">
@@ -12,7 +12,6 @@
             <%= link_to '', @tweet, method: :delete, data: { confirm: '削除しますか?' }, class: "fas fa-trash-alt" %>
           <% end %>
         </div>
-
         <div class="card-body shadow">
           <div class="tweet-content">
             <%= safe_join(@tweet.body.split("\n"),tag(:br)) %>
@@ -25,22 +24,37 @@
             </div>
           <% end %>
         </div>
-
         <div class="card-footer">
           <div class="row">
             <div class="col cheer-btn" id="tweet_<%= @tweet.id %>">
               <%= render "cheers/cheer-btn", tweet: @tweet %>
             </div>
-            <div class="col">
-              コメントする
+            <div class="col text-main">
+              <i class="far fa-comment-alt"></i>コメントする
             </div>
           </div>
           <small><%= @tweet.created_at.strftime('%Y/%m/%d %-H:%-M') %></small>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <div id="comments_area">
+        <%= render 'tweet_comments/comment-index', tweet: @tweet %>
+      </div>
+      <div class="form-group">
+        <%= render 'tweet_comments/comment-form', tweet: @tweet, tweet_comment: @tweet_comment %>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
       <%= link_to 'ユーザーページ', user_path(@user), class: "link-under-none text-main" %>　｜
       <%= link_to '積み上げ一覧へ', tweets_path, class: "link-under-none text-main" %>
     </div>
   </div>
+
 </div>
 
