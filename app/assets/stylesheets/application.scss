@@ -275,6 +275,18 @@ tweet/show
   color: $main-color;
 }
 
+.tweet-edit-icon {
+  font-size: 19px;
+  position: absolute;
+  right: 50px;
+}
+
+.tweet-delete-icon {
+  font-size: 19px;
+  position: absolute;
+  right: 20px;
+}
+
 .comment-box {
   position: relative;
 
@@ -285,7 +297,6 @@ tweet/show
     text-align: right;
     font-size: 20px;
   }
-  
 }
 
 .comment-title {
