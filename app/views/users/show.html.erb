@@ -41,15 +41,16 @@
               <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: '40x40', class: "rounded-circle" %>
               <%= @user.name %>
             <% end %>
-            <%= link_to 'show', tweet_path(tweet) %>
             <% if tweet.user_id == current_user.id %>
-              <%= link_to '', edit_tweet_path(tweet), class:"fas fa-edit" %>
+              <%= link_to '', edit_tweet_path(tweet), class:"fas fa-edit tweet-edit-icon" %>
             <% end %>
           </div>
           <div class="card-body">
-            <div class="tweet-content mb-3">
-              <%= safe_join(tweet.body.split("\n"),tag(:br)) %>
-            </div>
+            <%= link_to(tweet_path(tweet), class: "link-under-none text-main") do %>
+              <div class="tweet-content mb-3">
+                <%= safe_join(tweet.body.split("\n"),tag(:br)) %>
+              </div>
+            <% end %>
             <% tweet.tasks.each do |task| %>
               <div class="row bg-color border my-3">
                 <div class="col">
@@ -62,7 +63,7 @@
             <small><%= tweet.created_at.strftime('%Y/%m/%d %-H:%-M') %></small>
           </div>
           <div class="card-footer">
-
+            <%= link_to 'コメントする', tweet_path(tweet), class: "link-under-none text-main far fa-comment-alt" %>
           </div>
         </div>
       </div>
