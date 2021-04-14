@@ -23,6 +23,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @user = @tweet.user
     @tweet_comment = TweetComment.new
+    @task = @tweet.tasks
   end
 
   def edit
@@ -48,6 +49,6 @@ class TweetsController < ApplicationController
   private
 
     def tweet_params
-      params.require(:tweet).permit(:body, tasks_attributes: [:id, :task_name, :done, :_destroy])
+      params.require(:tweet).permit(:body, tasks_attributes: [:id, :task_name, :status, :_destroy])
     end
 end

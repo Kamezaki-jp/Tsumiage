@@ -2,7 +2,10 @@
   <div class="col-md-6">
     <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-1">
     <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+  </div>
+  <div class="col-md-1 pt-1">
+    <%= f.select :status, Task.statuses.keys %>
   </div>
 </div>
