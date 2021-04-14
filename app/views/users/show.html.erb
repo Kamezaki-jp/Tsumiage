@@ -6,7 +6,7 @@
     </div>
     <div class="col">
       <p class="user-name"><%= @user.name %></p>
-      <p class="user-introduction"><%= @user.introduction %></p>
+      <p class="user-introduction"><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
     </div>
   </div>
 
@@ -55,6 +55,7 @@
               <div class="row bg-color border my-3">
                 <div class="col">
                   <%= task.task_name %>
+                  <%= task.status %>
                 </div>
               </div>
             <% end %>

@@ -1,8 +1,13 @@
-<div class="nested-fields d-flex">
-  <div class="col-md-6">
-    <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
-  </div>
-  <div class="col-md-2">
-    <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
-  </div>
+<div class="nested-fields">
+  <table class="table">
+    <td width="45%">
+      <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
+    </td>
+    <td width="7%">
+      <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+    </td>
+    <td>
+      <%= f.select :status, Task.statuses.keys %>
+    </td>
+  </table>
 </div>
