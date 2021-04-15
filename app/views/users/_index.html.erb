@@ -1,0 +1,27 @@
+
+      <h3>ユーザー一覧</h3><hr>
+      <% users.each do |user| %>
+        <div class="row mt-3 bg-color">
+          <div class="col p-3 d-flex user-content">
+            <div class="col">
+              <%= link_to user_path(user) do %>
+                <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60", class: "rounded-circle shadow-lg" %>
+              <% end %>
+            </div>
+            <div class="col text-left pt-3 text-main link-under-none">
+              <%= link_to(user_path(user), class: "link-under-none text-main font-weight-bold") do %>
+                <%= user.name %>
+              <% end %>
+            </div>
+            <div class="col text-center pt-3">
+              <% unless user == current_user %>
+                <% if current_user.following?(user) %>
+                  <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST, class: "btn btn-sm btn-remove" %>
+                <% else %>
+                  <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-sm btn-main" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>

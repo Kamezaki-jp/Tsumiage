@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field 'content' %>
+    <%= select_tag 'model',  options_for_select({ "ユーザー" => "user", "ツイート" => "tweet" }) %>
+    <%= submit_tag '検索', class: "btn btn-sm btn-primary" %>
+  <% end %>
+<% end %>
