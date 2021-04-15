@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many  :tweets,        dependent: :destroy
   has_many  :cheers,        dependent: :destroy
   has_many  :tweet_comments, dependent: :destroy
-  
+
   has_many  :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many  :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many  :following_user,  through: :follower, source: :followed
@@ -37,5 +37,9 @@ class User < ApplicationRecord
       user.name = "ゲストユーザー"
       user.introduction = "こちらは閲覧用のゲストアカウントです。"
     end
+  end
+  
+  def task_count
+    User.joins(tweets: :tasks).where(tasks: {status: 2}).where(users: {id: self.id}).count
   end
 end
