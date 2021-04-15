@@ -1,7 +1,15 @@
 <% if user_signed_in? %>
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field 'content' %>
-    <%= select_tag 'model',  options_for_select({ "ユーザー" => "user", "ツイート" => "tweet" }) %>
-    <%= submit_tag '検索', class: "btn btn-sm btn-primary" %>
-  <% end %>
+  <div class="col">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field 'content', class: "form-control", placeholder: "検索ワード" %>
+  </div>
+  <div class="col-md-2">
+    <%= select_tag 'model', options_for_select({ "ユーザー" => "user", "ツイート" => "tweet" }), class: "form-control" %>
+  </div>
+  <div class="col">
+    <%= f.button :type => "submit", style: 'border-style: none;' do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+  </div>
+    <% end %>
 <% end %>
