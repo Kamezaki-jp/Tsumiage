@@ -4,7 +4,7 @@
       <%= f.text_field 'content', class: "form-control", placeholder: "検索ワード" %>
   </div>
   <div class="col-md-2">
-    <%= select_tag 'model', options_for_select({ "ユーザー" => "user", "ツイート" => "tweet" }), class: "form-control" %>
+    <%= select_tag 'model', options_for_select({ "ユーザー検索" => "user", "投稿検索" => "tweet" }), class: "form-control" %>
   </div>
   <div class="col">
     <%= f.button :type => "submit", style: 'border-style: none;' do %>
