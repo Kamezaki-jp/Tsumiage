@@ -20,9 +20,11 @@
           </div>
 
           <% @tweet.tasks.each do |task| %>
-            <div class="row bg-color border my-3">
+            <div class="row bg-color border my-3 p-2">
               <div class="col">
                 <%= task.task_name %>
+              </div>
+              <div class="col-md-1">
                 <%= task.status %>
               </div>
             </div>
