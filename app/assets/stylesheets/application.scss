@@ -88,6 +88,20 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: 30px;
 }
 
+.btn-add-task {
+  background-color: #fff;
+  color: $main-color;
+  border: 1px solid $main-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $sub-color;
+    border: 1px solid $sub-color;
+    color: #000;
+    opacity: 2.0;
+  }
+}
+
 .link-under-none {
   text-decoration: none !important;
 }
@@ -246,6 +260,10 @@ user/index
   box-shadow: 0px 2px 3px  rgba(0,0,0,0.5);
 }
 
+.task-content {
+  border-left: 6px solid $main-color;
+}
+
 /*========================
 user/show
 ========================*/
@@ -308,4 +326,21 @@ tweet/show
   font-size: 22px;
   padding: 5px;
   color: $main-color;
+}
+
+/*========================
+homes/users_ranking
+========================*/
+.rank-num {
+  font-weight: bold;
+  color: $main-color;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.rank-task-text {
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
 }

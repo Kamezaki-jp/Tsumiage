@@ -17,7 +17,7 @@
   <!--タスク・フォローボタン-->
   <div class="row mt-3">
     <div class="col mt-3">
-      <%= link_to 'タスクを追加', new_tweet_path, class: "btn btn-main btn-block" %>
+      <%= link_to 'タスクを追加', new_tweet_path, class: "btn btn-add-task btn-block" %>
     </div>
     <div class="col mt-3">
       <% if @user.id == current_user.id %>
@@ -57,17 +57,17 @@
               </div>
             <% end %>
             <% tweet.tasks.each do |task| %>
-              <div class="row bg-color border my-3 p-2">
-                <div class="col">
+              <div class="row mx-auto bg-color task-content my-3">
+                <div class="col pt-3">
                   <%= task.task_name %>
                 </div>
-                <div class="col-md-1">
-                  <%= task.status %>
+                <div class="col-md-3 pt-3 text-right">
+                  <p>ステータス：<%= task.status %></p>
                 </div>
               </div>
             <% end %>
             <i class="fas fa-bullhorn"></i>：<%= tweet.cheers.count %>
-            <i class="far fa-comment-alt"></i>：<%= tweet.tweet_comments.count %>
+            <i class="far fa-comment-alt"></i>：<%= tweet.tweet_comments.count %><br>
             <small><%= tweet.created_at.strftime('%Y/%m/%d %-H:%-M') %></small>
           </div>
           <div class="card-footer">
