@@ -8,7 +8,7 @@
     <%= f.fields_for :tasks do |task| %>
       <%= render 'task_fields', f: task %>
     <% end %>
-    <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-main" %>
+    <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-add-task" %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-info btn-custom px-5" %>
