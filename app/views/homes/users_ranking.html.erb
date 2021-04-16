@@ -1,10 +1,36 @@
-<ul>
-<% @users.each do |user| %>
-  <li>
-    <%= user.name %>
-  </li>
-  <li>
-    <%= user.task_count %>
-  </li>
-<% end %>
-</ul>
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-md-9 mx-auto text-center mt-3">
+      <h2>Tsumiageランキング</h2><hr>
+    </div>
+  </div>
+
+  <% @users.each_with_index do |user, i| %>
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto p-3 d-flex user-content bg-color">
+        <div class="col-md-1 col-xs-1 rank-num">
+          <%= "#{ i + 1 } 位" %>
+        </div>
+        <div class="col">
+          <%= link_to(user_path(user), class: "link-under-none text-main font-weight-bold") do %>
+            <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60", class: "rounded-circle shadow-lg" %>
+            <%= user.name %>
+          <% end %>
+        </div>
+        <div class="col">
+          <p class="rank-task-text text-main">完了タスク数：<%= user.completed_task_count %></p>
+        </div>
+        <div class="col-md-3 text-center pt-3">
+          <% unless user == current_user %>
+            <% if current_user.following?(user) %>
+              <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST, class: "btn btn-sm btn-remove" %>
+            <% else %>
+              <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-sm btn-main" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

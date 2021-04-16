@@ -38,8 +38,8 @@ class User < ApplicationRecord
       user.introduction = "こちらは閲覧用のゲストアカウントです。"
     end
   end
-  
-  def task_count
+  # 完了タスクのカウント
+  def completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(users: {id: self.id}).count
   end
 end

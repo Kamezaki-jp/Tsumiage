@@ -309,3 +309,20 @@ tweet/show
   padding: 5px;
   color: $main-color;
 }
+
+/*========================
+homes/users_ranking
+========================*/
+.rank-num {
+  font-weight: bold;
+  color: $main-color;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.rank-task-text {
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
