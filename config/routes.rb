@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'homes#top'
-  get 'homes/users_ranking' => 'homes#users_ranking'
+  get 'homes/overall_ranking' => 'homes#overall_ranking'
+  get 'homes/daily_ranking'   => 'homes#daily_ranking'
+  get 'homes/weekly_ranking'  => 'homes#weekly_ranking'
+  get 'homes/monthly_ranking' => 'homes#monthly_ranking'
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

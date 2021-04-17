@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-md-9 mx-auto text-center mt-3">
       <h2>Tsumiageランキング</h2><hr>
-      <%= link_to '総合', "#" %> |
-      <%= link_to '週間', "#" %> |
-      <%= link_to '月間', "#" %>
+      <%= link_to '総合', homes_overall_ranking_path %> |
+      <%= link_to '日間', homes_daily_ranking_path %> |
+      <%= link_to '週間', homes_weekly_ranking_path %> |
+      <%= link_to '月間', homes_monthly_ranking_path %>
     </div>
   </div>
 
@@ -21,7 +22,7 @@
           <% end %>
         </div>
         <div class="col">
-          <p class="rank-task-text text-main">完了タスク数：<%= user.completed_task_count %></p>
+          <p class="rank-task-text text-main">完了タスク数：<%= user.daily_completed_task_count %></p>
         </div>
         <div class="col-md-3 text-center pt-3">
           <% unless user == current_user %>
@@ -36,4 +37,3 @@
     </div>
   <% end %>
 </div>
-
