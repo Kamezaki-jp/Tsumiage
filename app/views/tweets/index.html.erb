@@ -1,3 +1,11 @@
 <div class="container">
+  <div class="row mx-auto mt-3">
+    <div class="col">
+      <h3>みんなの投稿</h3><hr>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <%= render 'searches/form' %>
+  </div>
   <%= render 'tweets/index', tweets: @tweets %>
 </div>

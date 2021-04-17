@@ -1,39 +1,37 @@
 <header>
   <nav class="navbar navbar-expand navbar-light">
     <%= link_to "Tsumiage", root_path, class: 'navbar-brand text-light font-weight-bold' %>
-    <div id="Navber">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ランキング', homes_overall_ranking_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'タスク一覧', tweets_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'タスクを追加', new_tweet_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
-          </li>
-        <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: 'btn custom-color text-light' %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to '積み上げを投稿する', new_tweet_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'ランキング', homes_overall_ranking_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'みんなの投稿', tweets_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: 'btn custom-color text-light' %>
+        </li>
+      <% end %>
+    </ul>
   </nav>
 </header>
