@@ -1,4 +1,8 @@
 <h3>ユーザー一覧</h3><hr>
+<div class="row">
+  <%= render 'searches/form' %>
+</div>
+
 <% users.each do |user| %>
   <div class="row mt-3 bg-color">
     <div class="col p-3 d-flex user-content">
