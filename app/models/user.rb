@@ -1,12 +1,12 @@
 class User < ApplicationRecord
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many  :tweets,        dependent: :destroy
   has_many  :cheers,        dependent: :destroy
   has_many  :tweet_comments, dependent: :destroy
-  
+
   has_many  :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many  :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many  :following_user,  through: :follower, source: :followed
@@ -39,25 +39,25 @@ class User < ApplicationRecord
       user.introduction = "こちらは閲覧用のゲストアカウントです。"
     end
   end
-  
+
   # ランキング（完了タスクの総合カウント）
   def completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(users: {id: self.id}).count
   end
-  
+
   # ランキング（完了タスクの日別カウント）
   def daily_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_day}).where(users: {id: self.id}).count
   end
-  
+
   # ランキング（完了タスクの週別カウント）
   def weekly_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_week}).where(users: {id: self.id}).count
   end
-  
+
    # ランキング（完了タスクの月別カウント）
   def monthly_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_month}).where(users: {id: self.id}).count
   end
-  
+
 end

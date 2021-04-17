@@ -329,7 +329,7 @@ tweet/show
 }
 
 /*========================
-homes/users_ranking
+homes/ranking
 ========================*/
 .rank-num {
   font-weight: bold;
@@ -343,4 +343,10 @@ homes/users_ranking
   margin-top: 15px;
   font-size: 16px;
   font-weight: bold;
+}
+
+.ranking-tab {
+  font-size: 20px;
+  font-weight: bold;
+  color: $main-color;
 }
