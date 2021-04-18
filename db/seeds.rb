@@ -6,3 +6,10 @@
      introduction: "テストユーザー#{n + 1}です。",
     )
   end
+
+10.times do |n|
+  LevelSetting.create!(
+    level: 2 + n ,
+    thresold: 50 * ( n + 1 )
+  )
+end

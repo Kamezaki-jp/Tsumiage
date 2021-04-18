@@ -36,6 +36,13 @@
       <%= link_to("#{@user.followed.count}フォロワー", followers_path(@user), class: "text-main font-weight-bold link-under-none") %>
     </div>
   </div>
+  <!--レベル-->
+  <div class="row">
+    <div class="col">
+      レベル：<%= @user.level %>
+      経験値：<%= @user.experience_point %>
+    </div>
+  </div>
   <!--ツイート・タスク内容-->
   <% @tweets.each do |tweet| %>
     <div class="row my-3">
