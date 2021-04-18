@@ -7,7 +7,9 @@
       <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
     </td>
     <td>
-      <%= f.select :status, Task.statuses.keys %>
+      <% unless current_page?(controller: 'tweets', action: 'new') %>
+        <%= f.select :status, Task.statuses.keys %>
+      <% end %>
     </td>
   </table>
 </div>
