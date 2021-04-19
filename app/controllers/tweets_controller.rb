@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @tweets = Tweet.all.order(created_at: :desc)
   end
@@ -14,7 +16,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweet_path(@tweet), notice: "投稿しました。"
     else
-      render 'new', notice: "入力してください"
+      render 'new', notice: "入力してください。"
     end
 
   end
@@ -36,19 +38,20 @@ class TweetsController < ApplicationController
     @user = User.find(@tweet.user_id)
 
     if @tweet.update(tweet_params)
-      #更新した内容にタスクのステータスが２のものが含まれるとき
+      #更新した内容にタスクのステータスが２の完了が含まれるとき
+      #レベル上限は100
       if @task.where(status: 2).exists? && @user.level <= 100
         level_up
       end
-      redirect_to tweet_path(@tweet), notice: "更新しました"
+      redirect_to tweet_path(@tweet), notice: "更新しました。"
     else
-      render 'edit'
+      render 'tweets/edit', alert: "必須項目があります。"
     end
   end
 
   def destroy
     Tweet.find(params[:id]).destroy
-    redirect_to user_path(current_user), alert: '投稿を削除しました'
+    redirect_to user_path(current_user), alert: '投稿を削除しました。'
   end
 
   private
@@ -59,16 +62,16 @@ class TweetsController < ApplicationController
 
     # レベルアップの処理
     def level_up
-      #変数に現在のユーザーの経験値を入れる
+      #変数に現在のユーザーの経験値を代入
       totalExp = @user.experience_point
       #得られた経験値をユーザーの経験値に加算
+      #１タスク１０ｐｔで設定
       totalExp += @task.where(status: 2).count * 10
-      #改めて、加算した経験値をuserの総経験値を示す変数に入れ直す
+      #加算した経験値をuserの総経験値を示す変数に再代入
       @user.experience_point = totalExp
       #更新の処理
       @user.update(experience_point: totalExp)
-      #レベルセッティングのモデルから、今の自分のレベルより1高いレコードを探す。
-      #それを変数に代入
+      #レベルセッティングのモデルから、今の自分のレベルより1高いレコードを探し代入
       levelSetting = LevelSetting.find_by(level: @user.level + 1);
 
       #探してきたレコードの閾値よりもユーザーの総経験値が高かった場合
