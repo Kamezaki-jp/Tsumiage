@@ -7,6 +7,10 @@
           <%= user.name %>
         <% end %>
       </div>
+      <div class="col font-weight-bold text-left text-main">
+        Lv. <%= user.level %><br>
+        積み上げポイント：<%= user.experience_point %>pt
+      </div>
       <div class="col pt-2">
         <%= render 'relationships/follow_btn', user: user %>
       </div>

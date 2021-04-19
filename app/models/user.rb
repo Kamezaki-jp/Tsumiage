@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-
+  # devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many  :tweets,        dependent: :destroy
-  has_many  :cheers,        dependent: :destroy
+  # アソシエーション
+  has_many  :tweets,         dependent: :destroy
+  has_many  :cheers,         dependent: :destroy
   has_many  :tweet_comments, dependent: :destroy
-
   has_many  :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many  :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many  :following_user,  through: :follower, source: :followed
@@ -15,7 +14,7 @@ class User < ApplicationRecord
   attachment :profile_image
   # バリデーション
   validates :name, presence: true, length: {minimum: 2, maximum: 20},uniqueness: true
-  validates :introduction,length: {maximum: 100}
+  validates :introduction,length: {maximum: 140}
 
   # フォローモデルメソッド
   def follow(user_id)
@@ -59,5 +58,6 @@ class User < ApplicationRecord
   def monthly_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_month}).where(users: {id: self.id}).count
   end
+  
 
 end

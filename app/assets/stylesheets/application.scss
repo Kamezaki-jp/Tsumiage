@@ -281,6 +281,52 @@ user/show
   box-shadow: 0px 2px 3px  rgba(0,0,0,0.2);
 }
 
+progress {
+  background: $bg-color;
+  width: 250px;
+  height: 20px;
+  border: none;
+}
+
+progress {
+  color: $sub-color;
+}
+
+progress::-webkit-progress-value {
+  background: $sub-color;
+}
+
+progress::-moz-progress-bar {
+  background: lightcolor;
+}
+
+.exp-content {
+  text-align: center;
+}
+
+.level-content {
+  text-align: center;
+  font-weight: bold;
+}
+
+.level-tag {
+  font-size: 20px;
+  color: $main-color;
+}
+
+.level-num {
+  font-size: 32px;
+  color: $main-color;
+  text-align: center;
+}
+
+.level-text {
+  font-size: 20px;
+  color: $main-color;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*========================
 tweet/show
 ========================*/
@@ -350,3 +396,5 @@ homes/ranking
   font-weight: bold;
   color: $main-color;
 }
+
+

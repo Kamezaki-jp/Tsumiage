@@ -5,7 +5,7 @@ class Tweet < ApplicationRecord
   has_many   :cheers,         dependent: :destroy
   has_many   :tweet_comments, dependent: :destroy
   # バリデーション
-  validates :body, presence: true
+  validates :body, length: { maximum: 140 }, presence: true
   # ツイートとタスクのネスト
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
   # cheerテーブルにユーザーのIDが存在するかどうか
