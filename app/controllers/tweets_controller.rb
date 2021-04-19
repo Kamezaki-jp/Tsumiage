@@ -34,12 +34,12 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @task = @tweet.tasks
     @user = User.find(@tweet.user_id)
-    
+
     if @tweet.update(tweet_params)
       #更新した内容にタスクのステータスが２のものが含まれるとき
-      # if
-      #   level_up
-      # end
+      if @task.where(status: 2).exists? && @user.level <= 100
+        level_up
+      end
       redirect_to tweet_path(@tweet), notice: "更新しました"
     else
       render 'edit'
@@ -56,7 +56,7 @@ class TweetsController < ApplicationController
     def tweet_params
       params.require(:tweet).permit(:body, tasks_attributes: [:id, :task_name, :status, :_destroy])
     end
-    
+
     # レベルアップの処理
     def level_up
       #変数に現在のユーザーの経験値を入れる
@@ -72,7 +72,7 @@ class TweetsController < ApplicationController
       levelSetting = LevelSetting.find_by(level: @user.level + 1);
 
       #探してきたレコードの閾値よりもユーザーの総経験値が高かった場合
-      if levelSetting.thresold <= user.experience_point
+      if levelSetting.thresold <= @user.experience_point
         #レベルを1増やして更新
         @user.level = @user.level + 1
         @user.update(level: @user.level)

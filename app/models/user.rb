@@ -59,5 +59,6 @@ class User < ApplicationRecord
   def monthly_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_month}).where(users: {id: self.id}).count
   end
+  
 
 end

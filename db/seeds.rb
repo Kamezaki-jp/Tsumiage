@@ -7,9 +7,9 @@
     )
   end
 
-10.times do |n|
+99.times do |n|
   LevelSetting.create!(
     level: 2 + n ,
-    thresold: 50 * ( n + 1 )
+    thresold: 100 * ( n + 1 )
   )
 end
