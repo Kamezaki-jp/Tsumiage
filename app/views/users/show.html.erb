@@ -37,7 +37,7 @@
     </div>
   </div>
   <!--レベル-->
-  <div class="row bg-color mx-auto">
+  <div class="row bg-color mx-auto mb-4">
     <div class="col-md-6 pt-3">
       <p class="level-text">積み上げレベル</p>
       <p class="level-content">
@@ -45,11 +45,11 @@
         <span class="level-num"><%= @user.level %></span>
       </p>
     </div>
-
+    <!--経験値バー-->
     <div class="col-md-6 pt-3">
       <p class="level-text">積み上げポイント：<%= @user.experience_point %>pt</p>
       <div class="exp-content">
-        <progress id="exp_bar" max="50" value="<%= @exp_bar %>"><%= @exp_bar %></progress>
+        <progress id="exp_bar" max="100" value="<%= @exp_bar %>"><%= @exp_bar %></progress>
         <p><small>次のレベルアップまで：<%= @next_level_exp %> pt</small></p>
       </div>
     </div>
