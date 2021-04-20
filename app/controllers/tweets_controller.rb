@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweet_path(@tweet), notice: "投稿しました。"
     else
-      render 'new', notice: "入力してください。"
+      render action: :new
     end
   end
 
@@ -33,13 +33,15 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    # @task = @tweet.tasks
+    @task = @tweet.tasks
     @user = User.find(@tweet.user_id)
 
     # Tweetに含まれるタスクが一つでも完了している場合はTweetを消せない。
     # Taskが完了している場合は該当Taskは消せない。
     # Taskが完了している場合は該当Taskは完了以外に出来ない。
     # Viewで上記の仕様もUserに伝えられるように変えておくと共にControllerで制御してください。
+
+    # 配列化
     tmp = []
     tweet_params[:tasks_attributes].each {|k, v| tmp[k.to_i] = v}
     tmp.each do |task|
@@ -50,7 +52,7 @@ class TweetsController < ApplicationController
         end
       end
     end
-    
+
     if @tweet.update(tweet_params)
       #更新した内容にタスクのステータスが２の完了が含まれるとき
       #レベル上限は100
@@ -72,13 +74,13 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @task = @tweet.tasks
-    
-    @task.each do |task|
-      if task.status == 2
-        #エラー
-      end
-    end
-    
+
+    # @task.each do |task|
+    #   if task.status == 2
+    #     #エラー
+    #   end
+    # end
+
     @tweet.destroy
     redirect_to user_path(current_user), alert: '投稿を削除しました。'
   end
