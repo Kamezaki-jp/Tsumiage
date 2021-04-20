@@ -7,9 +7,11 @@
   <p><strong>タスク</strong></p>
   <div id="tasks" class="form-group">
     <%= f.fields_for :tasks do |task| %>
-      <%= render 'task_fields', f: task %>
+      <%= render 'task_fields', {f: task, task_name: task.object.task_name } %>
     <% end %>
-    <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-add-task" %>
+    <% if current_page?(controller: 'tweets', action: 'new') %>
+      <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-add-task" %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-info btn-custom px-5" %>
