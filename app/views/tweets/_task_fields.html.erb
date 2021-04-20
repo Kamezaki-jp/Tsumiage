@@ -1,14 +1,24 @@
 <div class="nested-fields">
   <table class="table">
     <td width="45%">
-      <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
+      <% unless  f.object.完了? %>
+        <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
+      <% else %>
+        <%= task_name %>
+      <% end %>
     </td>
     <td width="7%">
-      <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+      <% if current_page?(controller: 'tweets', action: 'new') %>
+        <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+      <% end %>
     </td>
     <td>
       <% unless current_page?(controller: 'tweets', action: 'new') %>
-        <%= f.select :status, Task.statuses.keys %>
+        <% unless  f.object.完了? %>
+          <%= f.select :status, Task.statuses.keys %>
+        <% else %>
+          <p>完了</p>
+        <% end %>
       <% end %>
     </td>
   </table>
