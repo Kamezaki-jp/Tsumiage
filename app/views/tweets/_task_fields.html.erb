@@ -1,10 +1,10 @@
 <div class="nested-fields">
   <table class="table">
     <td width="45%">
-      <% unless  f.object.完了? %>
+      <% unless  f.object.積み上げ完了? %>
         <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
       <% else %>
-        <%= task_name %>
+        <p><%= task_name %></p>
       <% end %>
     </td>
     <td width="7%">
@@ -14,10 +14,10 @@
     </td>
     <td>
       <% unless current_page?(controller: 'tweets', action: 'new') %>
-        <% unless  f.object.完了? %>
+        <% unless  f.object.積み上げ完了? %>
           <%= f.select :status, Task.statuses.keys %>
         <% else %>
-          <p>完了</p>
+          <p class="text-main font-weight-bold"><i class="far fa-check-square"></i> 積み上げ完了</p>
         <% end %>
       <% end %>
     </td>

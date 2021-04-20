@@ -76,11 +76,11 @@
             <% end %>
             <% tweet.tasks.each do |task| %>
               <div class="row mx-auto bg-color task-content my-3">
-                <div class="col pt-3">
+                <div class="col pt-3 text-main font-weight-bold">
                   <%= task.task_name %>
                 </div>
                 <div class="col-md-3 pt-3 text-right">
-                  <p>ステータス：<%= task.status %></p>
+                  <p><i class="far fa-check-square"></i> <%= task.status %></p>
                 </div>
               </div>
             <% end %>
