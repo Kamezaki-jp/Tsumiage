@@ -14,6 +14,7 @@ class User < ApplicationRecord
   attachment :profile_image
   # バリデーション
   validates :name, presence: true, length: {minimum: 2, maximum: 20},uniqueness: true
+  validates :email, presece:true, uniqueness: true
   validates :introduction,length: {maximum: 140}
 
   # フォローモデルメソッド
@@ -58,6 +59,6 @@ class User < ApplicationRecord
   def monthly_completed_task_count
     User.joins(tweets: :tasks).where(tasks: {status: 2}).where(tasks: {updated_at: Time.now.all_month}).where(users: {id: self.id}).count
   end
-  
+
 
 end
