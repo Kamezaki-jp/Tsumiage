@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tweets = Tweet.all.order(created_at: :desc)
+    @tweets = Tweet.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -39,9 +39,9 @@ class TweetsController < ApplicationController
     # editのフォームから受け取ったデータを配列にする
     tmp = []
     tweet_params[:tasks_attributes].each {|k, v|
-        if v["task_name"].present?
-            tmp[k.to_i] = v
-        end
+      if v["task_name"].present?
+        tmp[k.to_i] = v
+      end
     }
 
     if @tweet.update(tweet_params)
@@ -54,7 +54,7 @@ class TweetsController < ApplicationController
       end
       redirect_to tweet_path(@tweet), notice: "更新しました。"
     else
-      render 'edit', alert: "必須項目があります。"
+      redirect_to edit_tweet_path(@tweet), alert: "必須項目があります"
     end
   end
 

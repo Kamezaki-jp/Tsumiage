@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc).page(params[:page]).per(10)
     @user = current_user
   end
 
   def show
     @user = User.find(params[:id])
-    @tweets = @user.tweets.order(created_at: :desc)
+    @tweets = @user.tweets.order(created_at: :desc).page(params[:page]).per(5)
     #次のレベルのレコードを取得
     @levelSetting = LevelSetting.find_by(level: @user.level + 1);
     # レベルアップのための必要経験値数の計算

@@ -12,6 +12,10 @@
     <td width="7%">
       <% if current_page?(controller: 'tweets', action: 'new') %>
         <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+      <% elsif current_page?(controller: 'tweets', action: 'edit') %>
+        <!--editのみ非表示-->
+      <% else %>
+        <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
       <% end %>
     </td>
     <!--新規投稿のみセレクトボックス表示-->

@@ -6,4 +6,9 @@
     </div>
   </div>
   <%= render 'follow', user: @user %>
+  <div class="row mt-4">
+    <div class="col">
+      <%= paginate @users %>
+    </div>
+  </div>
 </div>

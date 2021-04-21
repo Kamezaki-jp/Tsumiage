@@ -405,4 +405,23 @@ homes/ranking
   color: $main-color;
 }
 
+/*========================
+pagenate
+========================*/
 
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: $main-color;
+}
+
+.pagination>.active>a {
+  background-color: $sub-color;
+}
+
+.pagination>li>a:hover {
+  color: $sub-color;
+}
