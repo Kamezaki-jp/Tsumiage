@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
+  
   def follow
     current_user.follow(params[:id])
     redirect_back(fallback_location: root_path)

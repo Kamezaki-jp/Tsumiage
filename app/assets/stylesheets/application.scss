@@ -114,6 +114,27 @@ h1,h2,h3,h4,h5,h6 {
   color: $main-color;
 }
 
+.btn-guest-login {
+  background-color: $main-color;
+  color: #fff;
+
+  &:hover {
+    transition: all .5s;
+    opacity: .8;
+    color: #fff;
+  }
+}
+
+.btn-signup {
+  background-color: $sub-color;
+  color: $main-color;
+
+  &:hover {
+    transition: all .2s;
+    opacity: .8;
+    color: #fff;
+  }
+}
 /*========================
 flash message
 ========================*/
@@ -425,3 +446,4 @@ pagenate
 .pagination>li>a:hover {
   color: $sub-color;
 }
+
