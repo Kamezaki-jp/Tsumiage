@@ -71,7 +71,7 @@
           <div class="card-body">
             <%= link_to(tweet_path(tweet), class: "link-under-none text-main") do %>
               <div class="tweet-content mb-3">
-                <%= safe_join(tweet.body.split("\n"),tag(:br)) %>
+                <p class="tweet-text"><%= safe_join(tweet.body.split("\n"),tag(:br)) %></p>
               </div>
             <% end %>
             <% tweet.tasks.each do |task| %>

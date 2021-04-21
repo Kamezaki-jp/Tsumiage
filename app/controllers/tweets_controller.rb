@@ -29,12 +29,13 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+    @user = @tweet.user
   end
 
   def update
     @tweet = Tweet.find(params[:id])
     @user = User.find(@tweet.user_id)
-    
+
     # editのフォームから受け取ったデータを配列にする
     tmp = []
     tweet_params[:tasks_attributes].each {|k, v|
@@ -78,7 +79,7 @@ class TweetsController < ApplicationController
       @user.update(experience_point: totalExp)
       # レベルアップの判定
       levelSetting = LevelSetting.find_by(level: @user.level + 1);
-      
+
       if levelSetting.thresold <= @user.experience_point
         @user.level = @user.level + 1
         @user.update(level: @user.level)
