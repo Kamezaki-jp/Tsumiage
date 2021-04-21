@@ -1,23 +1,30 @@
 <div class="nested-fields">
   <table class="table">
     <td width="45%">
-      <% unless  f.object.完了? %>
+      <!--ステータスが完了以外のときはフォーム表示-->
+      <% unless  f.object.積み上げ完了? %>
         <%= f.text_field :task_name, class: "form-control mb-3", placeholder: "(例) Rubyの勉強" %>
       <% else %>
-        <%= task_name %>
+        <p class="text-main font-weight-bold"><%= task_name %></p>
       <% end %>
     </td>
+    <!--新規投稿のみボタン表示-->
     <td width="7%">
       <% if current_page?(controller: 'tweets', action: 'new') %>
         <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
+      <% elsif current_page?(controller: 'tweets', action: 'edit') %>
+        <!--editのみ非表示-->
+      <% else %>
+        <%= link_to_remove_association "削除", f, class: "btn btn-sm btn-remove" %>
       <% end %>
     </td>
+    <!--新規投稿のみセレクトボックス表示-->
     <td>
       <% unless current_page?(controller: 'tweets', action: 'new') %>
-        <% unless  f.object.完了? %>
+        <% unless  f.object.積み上げ完了? %>
           <%= f.select :status, Task.statuses.keys %>
         <% else %>
-          <p>完了</p>
+          <p class="text-main font-weight-bold"><i class="far fa-check-square"></i> 積み上げ完了</p>
         <% end %>
       <% end %>
     </td>

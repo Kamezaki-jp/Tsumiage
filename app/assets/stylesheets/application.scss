@@ -114,6 +114,27 @@ h1,h2,h3,h4,h5,h6 {
   color: $main-color;
 }
 
+.btn-guest-login {
+  background-color: $main-color;
+  color: #fff;
+
+  &:hover {
+    transition: all .5s;
+    opacity: .8;
+    color: #fff;
+  }
+}
+
+.btn-signup {
+  background-color: $sub-color;
+  color: $main-color;
+
+  &:hover {
+    transition: all .2s;
+    opacity: .8;
+    color: #fff;
+  }
+}
 /*========================
 flash message
 ========================*/
@@ -285,6 +306,10 @@ user/show
   box-shadow: 0px 2px 3px  rgba(0,0,0,0.2);
 }
 
+.tweet-text{
+  font-size: 18px;
+}
+
 progress {
   background: $bg-color;
   width: 250px;
@@ -401,4 +426,24 @@ homes/ranking
   color: $main-color;
 }
 
+/*========================
+pagenate
+========================*/
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: $main-color;
+}
+
+.pagination>.active>a {
+  background-color: $sub-color;
+}
+
+.pagination>li>a:hover {
+  color: $sub-color;
+}
 

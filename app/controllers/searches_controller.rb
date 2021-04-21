@@ -15,8 +15,6 @@ class SearchesController < ApplicationController
         User.where('name LIKE ?', '%'+content+'%').order(created_at: :desc)
       elsif model == 'tweet'
         Tweet.where('body LIKE ?', '%'+content+'%').order(created_at: :desc)
-      elsif model == 'task'
-        Task.where('task_name LIKE ?', '%'+content+'%')
       end
     end
 end
