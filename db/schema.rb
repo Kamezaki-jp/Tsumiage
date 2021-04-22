@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_103633) do
+ActiveRecord::Schema.define(version: 2021_04_22_014228) do
 
   create_table "cheers", force: :cascade do |t|
     t.integer "user_id"
@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(version: 2021_04_18_103633) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "tweet_id"
     t.string "task_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "done", default: false, null: false
     t.integer "status", default: 0
   end
 
