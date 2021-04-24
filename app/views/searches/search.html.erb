@@ -1,0 +1,15 @@
+<% if @model == 'user' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto py-3">
+        <h6>検索ワード："<%= @content %>"</h6>
+        <%= render 'users/index', users: @records %>
+      </div>
+    </div>
+  </div>
+<% elsif @model == 'tweet' %>
+  <div class="container mt-3">
+    <h6>検索ワード："<%= @content %>"</h6>
+    <%= render 'tweets/index', tweets: @records %>
+  </div>
+<% end %>

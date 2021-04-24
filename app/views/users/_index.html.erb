@@ -1,0 +1,24 @@
+<h3>ユーザー一覧</h3><hr>
+<div class="row">
+  <%= render 'searches/form' %>
+</div>
+
+<% users.each do |user| %>
+  <div class="row mt-3 bg-color">
+    <div class="col p-3 d-flex user-content">
+      <div class="col">
+        <%= link_to(user_path(user), class: "text-main link-under-none font-weight-bold") do %>
+          <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60", class: "rounded-circle shadow-lg" %>
+          <%= user.name %>
+        <% end %>
+      </div>
+      <div class="col font-weight-bold text-left text-main">
+        Lv. <%= user.level %><br>
+        積み上げポイント：<%= user.experience_point %>pt
+      </div>
+      <div class="col text-center pt-3">
+        <%= render 'relationships/follow_btn', user: user %>
+      </div>
+    </div>
+  </div>
+<% end %>

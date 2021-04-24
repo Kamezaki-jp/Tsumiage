@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_081757) do
+ActiveRecord::Schema.define(version: 2021_04_22_014228) do
 
   create_table "cheers", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "level_settings", force: :cascade do |t|
+    t.integer "level"
+    t.integer "thresold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,12 +34,11 @@ ActiveRecord::Schema.define(version: 2021_04_12_081757) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "tweet_id"
     t.string "task_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "done", default: false, null: false
+    t.integer "status", default: 0
   end
 
   create_table "tweet_comments", force: :cascade do |t|
@@ -62,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_081757) do
     t.string "name"
     t.boolean "is_deleted"
     t.string "profile_image_id"
+    t.integer "level", default: 1
+    t.integer "experience_point", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

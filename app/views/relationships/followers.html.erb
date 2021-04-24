@@ -1,9 +1,14 @@
-<div class="container">
+<div class="container my-3">
   <div class="row">
-    <div class="col pt-3">
+    <div class="col">
       <h4 class="font-weight-bold">フォロワー</h4>
       <hr>
     </div>
   </div>
   <%= render 'follow', user: @user %>
+  <div class="row mt-4">
+    <div class="col">
+      <%= paginate @users %>
+    </div>
+  </div>
 </div>

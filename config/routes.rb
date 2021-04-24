@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root 'homes#top'
+  get 'homes/overall_ranking' => 'homes#overall_ranking'
+  get 'homes/daily_ranking'   => 'homes#daily_ranking'
+  get 'homes/weekly_ranking'  => 'homes#weekly_ranking'
+  get 'homes/monthly_ranking' => 'homes#monthly_ranking'
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
   post 'unfollow/:id'       => 'relationships#unfollow',  as: 'unfollow'
   get  'user/:id/follows'   => 'relationships#follows',   as: 'follows'
   get  'user/:id/followers' => 'relationships#followers', as: 'followers'
+  get  '/search'            => 'searches#search'
 
   resources :users
   resources :tweets do

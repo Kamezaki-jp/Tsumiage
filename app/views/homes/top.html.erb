@@ -1,12 +1,102 @@
 <%= render 'shared/flash_messages' %>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="top-content">
-          <h1 class="top-title">Tsumiage</h1>
-          <p class="top-text">あなたのタスクが誰かのやる気につながる</p>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="top-content">
+        <h1 class="top-title">Tsumiage</h1>
+        <p class="top-text">あなたのタスクが誰かのやる気につながる</p>
+      </div>
+      <div class="text-center">
+        <%= link_to "今すぐ始める", new_user_registration_path, class: 'btn custom-sub-color btn-lg top-signup-btn' %>
+      </div>
+      <div class="text-center mt-3">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn custom-main-color btn-lg text-light top-guest-signin-btn' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'top.png', class: "img-fluid" %>
+    </div>
+  </div>
+</div>
+<!--about-->
+<div class="container-flued container-bg text-light">
+  <div class="row">
+    <div class="col text-center px-0">
+      <div class="about-content">
+        <h2 class="about-title">Tsumiageとは</h2>
+        <p class="about-text">
+          Todoリストを公開し、お互いのモチベーションに繋がるSNSサービスです。<br>
+          運動、勉強など何か続けたいけど、なかなか継続できなかった経験はありませんか？<br>
+          そんな問題を解決するのがTsumiageです。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--feature-->
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-md-6">
+      <div class="feature-content">
+        <h3 class="feature-title pt-2"><i class="fas fa-check-circle"></i>色んな人の積み上げを見てみよう</h3>
+        <p class="feature-text pt-2">
+          何か習慣化したい。<br>
+          そんな思いのある人と繋がり、切磋琢磨してみませんか。
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'feature1.png', class: "img-fluid feature-image", :size => '300x450' %>
+    </div>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="col-md-6">
+      <%= image_tag 'feature2.png', class: "img-fluid feature-image", :size => '300x450' %>
+    </div>
+    <div class="col-md-6">
+      <div class="feature-content">
+        <h3 class="feature-title pt-2"><i class="fas fa-check-circle"></i>タスクを完了するとレベルアップ</h3>
+        <p class="feature-text pt-2">
+          タスクを完了すると経験値が入ります。<br>
+          自分の積み上げが見える化し、モチベーションも上がります。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="col-md-6">
+      <div class="feature-content">
+        <h3 class="feature-title"><i class="fas fa-check-circle"></i>完了したタスクでランキング</h3>
+        <p class="feature-text">
+          総合、日間、週間、月間でランキングが更新されます。<br>
+          あなたの積み上げが色んな人のモチベーションに繋がります。
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'ranking.png', class: "img-fluid feature-image", :size => '300x450' %>
+    </div>
+  </div>
+</div>
+<!--message-->
+<div class="container-flued container-bg">
+  <div class="row">
+    <div class="col">
+      <div class="message-content">
+        <h3 class="message-title">Tsumiageを始めましょう</h3>
+        <p class="message-text">登録は１分で完了します</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="message-content">
         <div class="text-center">
           <%= link_to "今すぐ始める", new_user_registration_path, class: 'btn custom-sub-color btn-lg top-signup-btn' %>
         </div>
@@ -14,96 +104,7 @@
           <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn custom-main-color btn-lg text-light top-guest-signin-btn' %>
         </div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'top.png', class: "img-fluid" %>
-      </div>
     </div>
   </div>
-  <!--about-->
-  <div class="container-flued container-bg text-light">
-    <div class="row">
-      <div class="col text-center px-0">
-        <div class="about-content">
-          <h2 class="about-title">Tsumiageとは</h2>
-          <p class="about-text">
-            Todoリストを公開し、お互いのモチベーションに繋がるSNSサービスです。<br>
-            運動、勉強など何か続けたいけど、なかなか継続できなかった経験はありませんか？<br>
-            継続できなかった問題を解決するのがTsumiageです。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--feature-->
-  <div class="container">
-    <div class="row mx-auto">
-      <div class="col-md-6">
-        <div class="feature-content">
-          <h3 class="feature-title"><i class="fas fa-check-circle"></i>見出し見出し見出し見出し</h3>
-          <p class="feature-text">
-            テキストテキストテキストテキスト<br>
-            テキストテキストテキストテキスト
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'feature1.png', class: "img-fluid feature-image", :size => '300x450' %>
-      </div>
-    </div>
-
-    <div class="row mx-auto">
-      <div class="col-md-6">
-        <%= image_tag 'feature2.png', class: "img-fluid feature-image", :size => '300x450' %>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-content">
-          <h3 class="feature-title"><i class="fas fa-check-circle"></i>見出し見出し見出し見出し</h3>
-          <p class="feature-text">
-            テキストテキストテキストテキスト<br>
-            テキストテキストテキストテキスト
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mx-auto">
-      <div class="col-md-6">
-        <div class="feature-content">
-          <h3 class="feature-title"><i class="fas fa-check-circle"></i>見出し見出し見出し見出し</h3>
-          <p class="feature-text">
-            テキストテキストテキストテキスト<br>
-            テキストテキストテキストテキスト
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'feature3.png', class: "img-fluid feature-image", :size => '300x450' %>
-      </div>
-    </div>
-  </div>
-  <!--追加機能紹介-->
-  <div class="container-flued container-bg">
-    <div class="row">
-      <div class="col">
-        追加機能の紹介
-      </div>
-    </div>
-  </div>
-  <!--message-->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="message-content">
-          <h3 class="message-title">Tsumiageを始めましょう</h3>
-          <p class="message-text">登録は１分で完了します</p>
-          <div class="text-center">
-            <%= link_to "今すぐ始める", new_user_registration_path, class: 'btn custom-sub-color btn-lg top-signup-btn' %>
-          </div>
-          <div class="text-center mt-3">
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn custom-main-color btn-lg text-light top-guest-signin-btn' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 

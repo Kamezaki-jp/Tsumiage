@@ -88,6 +88,20 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: 30px;
 }
 
+.btn-add-task {
+  background-color: #fff;
+  color: $main-color;
+  border: 1px solid $main-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $sub-color;
+    border: 1px solid $sub-color;
+    color: #000;
+    opacity: 2.0;
+  }
+}
+
 .link-under-none {
   text-decoration: none !important;
 }
@@ -100,6 +114,27 @@ h1,h2,h3,h4,h5,h6 {
   color: $main-color;
 }
 
+.btn-guest-login {
+  background-color: $main-color;
+  color: #fff;
+
+  &:hover {
+    transition: all .5s;
+    opacity: .8;
+    color: #fff;
+  }
+}
+
+.btn-signup {
+  background-color: $sub-color;
+  color: $main-color;
+
+  &:hover {
+    transition: all .2s;
+    opacity: .8;
+    color: #fff;
+  }
+}
 /*========================
 flash message
 ========================*/
@@ -171,6 +206,8 @@ home/top
   padding: 5px 22px;
 }
 
+
+
 /*========================
 about
 ========================*/
@@ -208,6 +245,8 @@ feature
 }
 
 
+
+
 /*========================
 message
 ========================*/
@@ -218,12 +257,12 @@ message
 }
 
 .message-title {
-  color: $main-color;
+  color: #fff;
   font-size: 32px;
 }
 
 .message-text {
-  color: $main-color;
+  color: #fff;
 }
 
 /*========================
@@ -246,6 +285,10 @@ user/index
   box-shadow: 0px 2px 3px  rgba(0,0,0,0.5);
 }
 
+.task-content {
+  border-left: 6px solid $main-color;
+}
+
 /*========================
 user/show
 ========================*/
@@ -261,6 +304,56 @@ user/show
 
 .card-header, .card-footer {
   box-shadow: 0px 2px 3px  rgba(0,0,0,0.2);
+}
+
+.tweet-text{
+  font-size: 18px;
+}
+
+progress {
+  background: $bg-color;
+  width: 250px;
+  height: 20px;
+  border: none;
+}
+
+progress {
+  color: $sub-color;
+}
+
+progress::-webkit-progress-value {
+  background: $sub-color;
+}
+
+progress::-moz-progress-bar {
+  background: lightcolor;
+}
+
+.exp-content {
+  text-align: center;
+}
+
+.level-content {
+  text-align: center;
+  font-weight: bold;
+}
+
+.level-tag {
+  font-size: 20px;
+  color: $main-color;
+}
+
+.level-num {
+  font-size: 32px;
+  color: $main-color;
+  text-align: center;
+}
+
+.level-text {
+  font-size: 20px;
+  color: $main-color;
+  text-align: center;
+  font-weight: bold;
 }
 
 /*========================
@@ -302,3 +395,55 @@ tweet/show
 .comment-title {
   font-size: 18px;
 }
+
+
+.fa-search {
+  font-size: 22px;
+  padding: 5px;
+  color: $main-color;
+}
+
+/*========================
+homes/ranking
+========================*/
+.rank-num {
+  font-weight: bold;
+  color: $main-color;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.rank-task-text {
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ranking-tab {
+  font-size: 20px;
+  font-weight: bold;
+  color: $main-color;
+}
+
+/*========================
+pagenate
+========================*/
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: $main-color;
+}
+
+.pagination>.active>a {
+  background-color: $sub-color;
+}
+
+.pagination>li>a:hover {
+  color: $sub-color;
+}
+

@@ -1,4 +1,6 @@
 <%= form_with(model: tweet, local: true) do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/flash_messages' %>
   <div class="form-group">
     <p><strong>ツイート内容</strong></p>
     <%= f.text_area :body, placeholder: "あなたの積み上げをシェアしよう", class: "form-control" %>
@@ -6,9 +8,15 @@
   <p><strong>タスク</strong></p>
   <div id="tasks" class="form-group">
     <%= f.fields_for :tasks do |task| %>
-      <%= render 'task_fields', f: task %>
+      <%= render 'task_fields', {f: task, task_name: task.object.task_name } %>
     <% end %>
-    <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-main" %>
+    <!--新規投稿のみボタン表示-->
+    <% if current_page?(controller: 'tweets', action: 'new') %>
+        <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-add-task" %>
+      <% elsif current_page?(controller: 'tweets', action: 'edit') %>
+      <% else %>
+        <%= link_to_add_association 'タスクを追加', f, :tasks, class: "btn btn-add-task" %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-info btn-custom px-5" %>

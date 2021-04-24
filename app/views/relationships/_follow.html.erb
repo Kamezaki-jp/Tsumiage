@@ -7,14 +7,12 @@
           <%= user.name %>
         <% end %>
       </div>
+      <div class="col font-weight-bold text-left text-main">
+        Lv. <%= user.level %><br>
+        積み上げポイント：<%= user.experience_point %>pt
+      </div>
       <div class="col pt-2">
-        <% unless user == current_user %>
-        <% if current_user.following?(user) %>
-          <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST, class: "btn btn-sm btn-remove" %>
-        <% else %>
-          <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: "btn btn-sm btn-main" %>
-        <% end %>
-      <% end %>
+        <%= render 'relationships/follow_btn', user: user %>
       </div>
     </div>
   </div>

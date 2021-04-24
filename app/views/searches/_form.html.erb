@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <div class="col">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field 'content', class: "form-control", placeholder: "検索ワード" %>
+  </div>
+  <div class="col-md-3">
+    <%= select_tag 'model', options_for_select({ "ユーザー検索" => "user", "投稿検索" => "tweet" }), class: "form-control" %>
+  </div>
+  <div class="col">
+    <%= f.button :type => "submit", style: 'border-style: none;' do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+  </div>
+    <% end %>
+<% end %>
