@@ -1,7 +1,7 @@
 # Tsumiage
 
 ## サイト概要
-Todoリストを共有し、勉強や運動など、やりたいことを習慣化するためのサイトです。
+Todoリストを投稿し、勉強や運動など、やりたいことを習慣化するためのサイトです。
 
 ### サイトテーマ
 Todoリストを人と共有することで、モチベーションを刺激し切磋琢磨できるような仕組みを作る。
@@ -18,6 +18,8 @@ Todoリストを人と共有することで、モチベーションを刺激し�
 - モチベーションが下がってきたときに人のTodoを見る
 
 ## 設計書
+・ER図
+![pf_er](https://user-images.githubusercontent.com/67051841/116039676-fed33000-a6a5-11eb-91e9-21caa3bb2131.png)
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1rhFQjhwabiV81p6MeLqo3p6NmljTtIt0BBOpqzKFuik/edit#gid=0
