@@ -30,7 +30,7 @@ Todoリストを投稿し、勉強や運動など、やりたいことを習慣�
 タスクをゲーム感覚で楽しみながら、毎日の積み上げをしていきましょう。
 
 ## 設計書
-・ER図
+・ER図  
 https://docs.google.com/document/d/11RAoMJw94zJQO2ThfDYXOFgAEy3cBfNfKg8Odt2T2wU/edit
 
 ## チャレンジ要素一覧
