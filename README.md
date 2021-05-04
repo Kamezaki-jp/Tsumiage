@@ -1,8 +1,8 @@
 # Tsumiage
 
 ## サイト概要
-Todoリストを投稿し、勉強や運動など、やりたいことを習慣化するためのSNSです。
-<img src="https://user-images.githubusercontent.com/67051841/116044591-11506800-a6ac-11eb-863c-56c54fe5dd69.png" width="70%">
+Todoリストを投稿し、勉強や運動など、やりたいことを習慣化するためのSNSです。  
+<img src="https://user-images.githubusercontent.com/67051841/116044591-11506800-a6ac-11eb-863c-56c54fe5dd69.png" width="80%">
 
 ### サイト目的
 - モチベーションを刺激し切磋琢磨できるような仕組みを作る。
