@@ -2,6 +2,8 @@
 
 ## サイト概要
 Todoリストを投稿し、勉強や運動など、やりたいことを習慣化するためのSNSです。  
+サイトURL【http://54.178.66.253/】
+
 <img src="https://user-images.githubusercontent.com/67051841/116044591-11506800-a6ac-11eb-863c-56c54fe5dd69.png" width="80%">
 
 ### サイト目的
