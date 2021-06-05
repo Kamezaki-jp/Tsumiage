@@ -5,14 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: %i[update destroy]
 
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません。' if resource.email == 'guest@example.com'
   end
 
   protected
 
-    def after_update_path_for(resource)
-      user_path(current_user)
-    end
+  def after_update_path_for(_resource)
+    user_path(current_user)
+  end
 end

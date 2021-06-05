@@ -9,7 +9,7 @@ class TweetCommentsController < ApplicationController
       redirect_to tweet_path(@tweet)
     else
       @user = @tweet.user
-      render "tweets/show", alert: "コメントを入力してください"
+      render 'tweets/show', alert: 'コメントを入力してください'
     end
   end
 
@@ -19,7 +19,8 @@ class TweetCommentsController < ApplicationController
   end
 
   private
-    def tweet_comment_params
-      params.require(:tweet_comment).permit(:comment)
-    end
+
+  def tweet_comment_params
+    params.require(:tweet_comment).permit(:comment)
+  end
 end
