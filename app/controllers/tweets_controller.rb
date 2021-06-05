@@ -14,9 +14,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      redirect_to tweet_path(@tweet), notice: "投稿しました。"
+      redirect_to tweet_path(@tweet), notice: '投稿しました。'
     else
-      render 'new', alert: "必須項目があります"
+      render 'new', alert: '必須項目があります'
     end
   end
 
@@ -38,23 +38,19 @@ class TweetsController < ApplicationController
 
     # editのフォームから受け取ったデータを配列にする
     tmp = []
-    tweet_params[:tasks_attributes].each {|k, v|
-      if v["task_name"].present?
-        tmp[k.to_i] = v
-      end
-    }
+    tweet_params[:tasks_attributes].each do |k, v|
+      tmp[k.to_i] = v if v['task_name'].present?
+    end
 
     if @tweet.update(tweet_params)
       # 配列からnilと空文字を取り除く
       tmp.compact.reject(&:empty?).each do |task|
-        @task = Task.find_by(id: task[:id], status:2)
-        if @task != nil && @user.level < 100
-          level_up
-        end
+        @task = Task.find_by(id: task[:id], status: 2)
+        level_up if !@task.nil? && @user.level < 100
       end
-      redirect_to tweet_path(@tweet), notice: "更新しました。"
+      redirect_to tweet_path(@tweet), notice: '更新しました。'
     else
-      redirect_to edit_tweet_path(@tweet), alert: "必須項目があります"
+      redirect_to edit_tweet_path(@tweet), alert: '必須項目があります'
     end
   end
 
@@ -65,24 +61,24 @@ class TweetsController < ApplicationController
 
   private
 
-    def tweet_params
-      params.require(:tweet).permit(:body, tasks_attributes: [:id, :task_name, :status, :_destroy])
-    end
+  def tweet_params
+    params.require(:tweet).permit(:body, tasks_attributes: %i[id task_name status _destroy])
+  end
 
-    # レベルアップの処理
-    def level_up
-      #変数に現在のユーザーの経験値を代入
-      totalExp = @user.experience_point
-      #１タスク１０ｐｔで設定
-      totalExp += 10
-      @user.experience_point = totalExp
-      @user.update(experience_point: totalExp)
-      # レベルアップの判定
-      levelSetting = LevelSetting.find_by(level: @user.level + 1);
+  # レベルアップの処理
+  def level_up
+    # 変数に現在のユーザーの経験値を代入
+    totalExp = @user.experience_point
+    # １タスク１０ｐｔで設定
+    totalExp += 10
+    @user.experience_point = totalExp
+    @user.update(experience_point: totalExp)
+    # レベルアップの判定
+    levelSetting = LevelSetting.find_by(level: @user.level + 1)
 
-      if levelSetting.thresold <= @user.experience_point
-        @user.level = @user.level + 1
-        @user.update(level: @user.level)
-      end
+    if levelSetting.thresold <= @user.experience_point
+      @user.level = @user.level + 1
+      @user.update(level: @user.level)
     end
+  end
 end
