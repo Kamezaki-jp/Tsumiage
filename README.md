@@ -44,3 +44,6 @@ https://docs.google.com/spreadsheets/d/1rhFQjhwabiV81p6MeLqo3p6NmljTtIt0BBOpqzKF
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 仕様素材
+- Storyset【 https://storyset.com/ 】
